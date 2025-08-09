@@ -33,7 +33,11 @@ describe('Automation test login saucedemo menggunakan chrome', function () {
         await buttonLogin.click()
 
         // // assert: text dalam element benar
-        let textAppLogo = await driver.findElement(By.className('app_logo', 5000))
+        let textAppLogo = await driver.wait(
+            until.elementLocated(By.className('app_logo')),
+            5000
+        );
+        
         let logotext = await textAppLogo.getText()
         assert.strictEqual(logotext, 'Swag Labs')
 
