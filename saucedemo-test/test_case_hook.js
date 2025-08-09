@@ -5,7 +5,7 @@ const firefox = require('selenium-webdriver/firefox');
 
 describe('Automation test login saucedemo menggunakan chrome', function () {
     let driver;
-    this.timeout(30000);
+    this.timeout(60000); //bikin timeout mocha global (per test)
     let options;
 
     before(async function () {
@@ -34,14 +34,13 @@ describe('Automation test login saucedemo menggunakan chrome', function () {
 
         // // assert: text dalam element benar
         let textAppLogo = await driver.wait(
-            until.elementLocated(By.className('app_logo')),
-            5000
+            until.elementLocated(By.className('app_logo')), 5000
         );
         
         let logotext = await textAppLogo.getText()
         assert.strictEqual(logotext, 'Swag Labs')
 
-        //assert untuk cek apakah sudah berhasil login menggunakan url
+        // //assert untuk cek apakah sudah berhasil login menggunakan url
         let currentUrl = await driver.getCurrentUrl();
         assert.strictEqual(currentUrl, 'https://www.saucedemo.com/inventory.html');
     });

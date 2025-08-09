@@ -5,9 +5,9 @@
     "passes": 2,
     "pending": 0,
     "failures": 0,
-    "start": "2025-08-09T13:38:10.591Z",
-    "end": "2025-08-09T13:38:19.769Z",
-    "duration": 9178,
+    "start": "2025-08-09T17:52:01.687Z",
+    "end": "2025-08-09T17:52:08.659Z",
+    "duration": 6972,
     "testsRegistered": 2,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "56660849-a754-4e5b-b0bf-9a4dfdfa1b33",
+      "uuid": "7b92a492-404e-42b0-951c-0e32a63caaf9",
       "title": "",
       "fullFile": "/Users/pardede/Downloads/Mini Bootcamp QA/Materi 10 - Web UI Automation Advance - Part 1/sesi10_Web-UI-Automation-Using-Hook_Yoel/saucedemo-test/test_case_hook.js",
       "file": "/saucedemo-test/test_case_hook.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "45f17148-1a40-42c8-b1e6-c34226aecbb9",
+          "uuid": "b70203c7-18f8-4b58-ac5e-3d97bcc0bf75",
           "title": "Automation test login saucedemo menggunakan chrome",
           "fullFile": "/Users/pardede/Downloads/Mini Bootcamp QA/Materi 10 - Web UI Automation Advance - Part 1/sesi10_Web-UI-Automation-Using-Hook_Yoel/saucedemo-test/test_case_hook.js",
           "file": "/saucedemo-test/test_case_hook.js",
@@ -36,7 +36,7 @@
               "title": "\"before all\" hook in \"Automation test login saucedemo menggunakan chrome\"",
               "fullTitle": "Automation test login saucedemo menggunakan chrome \"before all\" hook in \"Automation test login saucedemo menggunakan chrome\"",
               "timedOut": false,
-              "duration": 2658,
+              "duration": 1614,
               "state": null,
               "speed": null,
               "pass": false,
@@ -45,8 +45,8 @@
               "context": null,
               "code": "options = new chrome.Options();\noptions.addArguments('--incognito'); //option ke chrome supaya gak ada popup passwordnya\noptions.addArguments('--headless');  // headless\n// headless\n//driver = await new Builder().forBrowser('chrome').setChromeOptions(options).build(); \n//headed\ndriver = await new Builder().forBrowser('chrome').build();",
               "err": {},
-              "uuid": "1a73e963-b0f3-4d23-ac92-40f913b1b071",
-              "parentUUID": "45f17148-1a40-42c8-b1e6-c34226aecbb9",
+              "uuid": "aaa57ff4-0d0e-4158-ad77-675b62255508",
+              "parentUUID": "b70203c7-18f8-4b58-ac5e-3d97bcc0bf75",
               "isHook": true,
               "skipped": false
             },
@@ -54,17 +54,17 @@
               "title": "\"before each\" hook in \"Automation test login saucedemo menggunakan chrome\"",
               "fullTitle": "Automation test login saucedemo menggunakan chrome \"before each\" hook in \"Automation test login saucedemo menggunakan chrome\"",
               "timedOut": false,
-              "duration": 575,
+              "duration": 429,
               "state": null,
               "speed": null,
               "pass": false,
               "fail": false,
               "pending": false,
               "context": null,
-              "code": "// Berhasil login dengan kredensial yang valid\nawait driver.get('https://www.saucedemo.com');\n//isi kredential login\nlet inputUsername = await driver.findElement(By.xpath('//*[@data-test=\"username\"]'))\nlet inputPassword = await driver.findElement(By.xpath('//*[@data-test=\"password\"]'))\nlet buttonLogin = await driver.findElement(By.xpath('//*[@data-test=\"login-button\"]'))\nawait inputUsername.sendKeys('standard_user')\nawait inputPassword.sendKeys('secret_sauce')\nawait buttonLogin.click()\n// // assert: text dalam element benar\nlet textAppLogo = await driver.wait(\n    until.elementLocated(By.className('app_logo')),\n    5000\n);\n\nlet logotext = await textAppLogo.getText()\nassert.strictEqual(logotext, 'Swag Labs')\n//assert untuk cek apakah sudah berhasil login menggunakan url\nlet currentUrl = await driver.getCurrentUrl();\nassert.strictEqual(currentUrl, 'https://www.saucedemo.com/inventory.html');",
+              "code": "// Berhasil login dengan kredensial yang valid\nawait driver.get('https://www.saucedemo.com');\n//isi kredential login\nlet inputUsername = await driver.findElement(By.xpath('//*[@data-test=\"username\"]'))\nlet inputPassword = await driver.findElement(By.xpath('//*[@data-test=\"password\"]'))\nlet buttonLogin = await driver.findElement(By.xpath('//*[@data-test=\"login-button\"]'))\nawait inputUsername.sendKeys('standard_user')\nawait inputPassword.sendKeys('secret_sauce')\nawait buttonLogin.click()\n// // assert: text dalam element benar\nlet textAppLogo = await driver.wait(\n    until.elementLocated(By.className('app_logo')), 5000\n);\n\nlet logotext = await textAppLogo.getText()\nassert.strictEqual(logotext, 'Swag Labs')\n// //assert untuk cek apakah sudah berhasil login menggunakan url\nlet currentUrl = await driver.getCurrentUrl();\nassert.strictEqual(currentUrl, 'https://www.saucedemo.com/inventory.html');",
               "err": {},
-              "uuid": "967072d3-f921-4ce4-8ca3-70c55a8341ba",
-              "parentUUID": "45f17148-1a40-42c8-b1e6-c34226aecbb9",
+              "uuid": "a1ef711b-bb70-419b-b9a2-e3132cbd9ccf",
+              "parentUUID": "b70203c7-18f8-4b58-ac5e-3d97bcc0bf75",
               "isHook": true,
               "skipped": false
             }
@@ -74,7 +74,7 @@
               "title": "\"after all\" hook in \"Automation test login saucedemo menggunakan chrome\"",
               "fullTitle": "Automation test login saucedemo menggunakan chrome \"after all\" hook in \"Automation test login saucedemo menggunakan chrome\"",
               "timedOut": false,
-              "duration": 198,
+              "duration": 162,
               "state": null,
               "speed": null,
               "pass": false,
@@ -83,8 +83,8 @@
               "context": null,
               "code": "await driver.quit();",
               "err": {},
-              "uuid": "e6271986-b68d-4a1f-b3d8-06b485fef96f",
-              "parentUUID": "45f17148-1a40-42c8-b1e6-c34226aecbb9",
+              "uuid": "0b5f3395-7337-498a-b546-0d38d54b0471",
+              "parentUUID": "b70203c7-18f8-4b58-ac5e-3d97bcc0bf75",
               "isHook": true,
               "skipped": false
             }
@@ -94,7 +94,7 @@
               "title": "Sorting product name A - Z ",
               "fullTitle": "Automation test login saucedemo menggunakan chrome Sorting product name A - Z ",
               "timedOut": false,
-              "duration": 1966,
+              "duration": 1826,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -103,8 +103,8 @@
               "context": null,
               "code": "// //assert dropdown sort A-Z\nlet sortDropdown = await driver.findElement(By.className('product_sort_container'));\nawait sortDropdown.click();\nawait driver.sleep(1700);\n\n//cek apakah sudah sort A-Z\nlet option = await driver.findElement(By.xpath('//option[text()=\"Name (A to Z)\"]'));\nawait option.click();",
               "err": {},
-              "uuid": "fe74f471-758d-41c7-b0ca-00b8588b2682",
-              "parentUUID": "45f17148-1a40-42c8-b1e6-c34226aecbb9",
+              "uuid": "6ba6d8cd-de24-49e3-a012-6dd2e88a3b44",
+              "parentUUID": "b70203c7-18f8-4b58-ac5e-3d97bcc0bf75",
               "isHook": false,
               "skipped": false
             },
@@ -112,7 +112,7 @@
               "title": "Sorting price (low to high) ",
               "fullTitle": "Automation test login saucedemo menggunakan chrome Sorting price (low to high) ",
               "timedOut": false,
-              "duration": 1854,
+              "duration": 1798,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -121,24 +121,24 @@
               "context": null,
               "code": "// //assert dropdown sort price (low to high)\nlet sortDropdown = await driver.findElement(By.className('product_sort_container'));\nawait sortDropdown.click();\nawait driver.sleep(1700);\n\n//cek apakah harga sudah low to high\nlet option = await driver.findElement(By.xpath('//option[text()=\"Price (low to high)\"]'));\nawait option.click();",
               "err": {},
-              "uuid": "0add2d43-7835-458b-90bb-34f661beb581",
-              "parentUUID": "45f17148-1a40-42c8-b1e6-c34226aecbb9",
+              "uuid": "2c2c3ccd-b1e5-4bc4-9cbb-c8552d2cdee5",
+              "parentUUID": "b70203c7-18f8-4b58-ac5e-3d97bcc0bf75",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "fe74f471-758d-41c7-b0ca-00b8588b2682",
-            "0add2d43-7835-458b-90bb-34f661beb581"
+            "6ba6d8cd-de24-49e3-a012-6dd2e88a3b44",
+            "2c2c3ccd-b1e5-4bc4-9cbb-c8552d2cdee5"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 3820,
+          "duration": 3624,
           "root": false,
           "rootEmpty": false,
-          "_timeout": 30000
+          "_timeout": 60000
         }
       ],
       "passes": [],
