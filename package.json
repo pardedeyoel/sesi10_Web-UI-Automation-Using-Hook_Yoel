@@ -1,12 +1,11 @@
 {
   "name": "sesi10_web-ui-automation-using-hook_yoel",
   "version": "1.0.0",
-  "description": "selenium WebDriver tests using  Mocha with Mochawesome reports",
+  "description": "selenium WebDriver tests using Mocha with Mochawesome reports",
   "main": "index.js",
   "scripts": {
     "all-test" : "mocha saucedemo-test/*.js --recursive --timeout 60000 --reporter mochawesome",
-    "login-test": "mocha saucedemo-test/login_test-hook.js --recursive --timeout 60000 --reporter mochawesome",
-    "sort-test": "mocha saucedemo-test/sort_test-hook.js --recursive --timeout 60000 --reporter mocha-simple-html-reporter --reporter-options output=report.html"
+    "test_case_hook": "mocha saucedemo-test/test_case_hook.js --recursive --timeout 60000 --reporter mochawesome"
   },
   "repository": {
     "type": "git",

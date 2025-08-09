@@ -6,17 +6,22 @@ const firefox = require('selenium-webdriver/firefox');
 describe('Automation test login saucedemo menggunakan chrome', function () {
     let driver;
     this.timeout(30000);
+    let options;
 
-    it('Berhasil login dengan kredensial yang valid', async function () {
-        Options = new chrome.Options();
-        Options.addArguments('--incognito'); //option ke chrome supaya gak ada popup passwordnya
-        Options.addArguments('--headless');  // headless
+    before(async function () {
+        options = new chrome.Options();
+        options.addArguments('--incognito'); //option ke chrome supaya gak ada popup passwordnya
+        options.addArguments('--headless');  // headless
         // headless
-        //driver = await new Builder().forBrowser('chrome').setChromeOptions(Options).build(); 
+        //driver = await new Builder().forBrowser('chrome').setChromeOptions(options).build(); 
 
         //headed
-       driver = await new Builder().forBrowser('chrome').build(); 
+        driver = await new Builder().forBrowser('chrome').build();
+    });
 
+
+        beforeEach(async function () {
+        // Berhasil login dengan kredensial yang valid
         await driver.get('https://www.saucedemo.com');
 
         //isi kredential login
@@ -27,19 +32,42 @@ describe('Automation test login saucedemo menggunakan chrome', function () {
         await inputPassword.sendKeys('secret_sauce')
         await buttonLogin.click()
 
-        // assert: text dalam element benar
-        let textAppLogo = await driver.findElement(By.className('app_logo'))
+        // // assert: text dalam element benar
+        let textAppLogo = await driver.findElement(By.className('app_logo', 5000))
         let logotext = await textAppLogo.getText()
         assert.strictEqual(logotext, 'Swag Labs')
-
 
         //assert untuk cek apakah sudah berhasil login menggunakan url
         let currentUrl = await driver.getCurrentUrl();
         assert.strictEqual(currentUrl, 'https://www.saucedemo.com/inventory.html');
-
-       // await driver.sleep(1700);
+    });
+    
+    after(async function () {
         await driver.quit();
-        
+    });
+
+    it('Sorting product name A - Z ', async function () {
+        // //assert dropdown sort A-Z
+        let sortDropdown = await driver.findElement(By.className('product_sort_container'));
+        await sortDropdown.click();
+        await driver.sleep(1700);
+
+
+        //cek apakah sudah sort A-Z
+        let option = await driver.findElement(By.xpath('//option[text()="Name (A to Z)"]'));
+        await option.click();
+    });
+
+    it('Sorting price (low to high) ', async function () {
+        // //assert dropdown sort price (low to high)
+        let sortDropdown = await driver.findElement(By.className('product_sort_container'));
+        await sortDropdown.click();
+        await driver.sleep(1700);
+
+
+        //cek apakah harga sudah low to high
+        let option = await driver.findElement(By.xpath('//option[text()="Price (low to high)"]'));
+        await option.click();
     });
 
         //jika pakai firefox
@@ -77,4 +105,4 @@ describe('Automation test login saucedemo menggunakan chrome', function () {
     //     await driver.quit();
         
     // });
-})
+});
