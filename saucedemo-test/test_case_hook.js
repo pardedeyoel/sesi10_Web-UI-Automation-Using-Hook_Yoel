@@ -12,6 +12,8 @@ describe('Automation test login saucedemo menggunakan chrome', function () {
         options = new chrome.Options();
         options.addArguments('--incognito'); //option ke chrome supaya gak ada popup passwordnya
         options.addArguments('--headless');  // headless
+        options.addArguments('--disable-save-password-bubble'); // Hilangkan popup save password
+
         // headless
         //driver = await new Builder().forBrowser('chrome').setChromeOptions(options).build(); 
 
